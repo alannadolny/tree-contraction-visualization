@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { LABEL } from '../utils/consts';
 
 const InfoBar = ({ rake, setIteration }) => {
   const [toRake, setToRake] = useState([]);
@@ -33,14 +34,27 @@ const InfoBar = ({ rake, setIteration }) => {
 
   return (
     <div>
-      <p>To rake: A = {displayLeaves(toRake)}</p>
-      <p>A_odd = {displayLeaves(toRakeOdd)}</p>
-      <p>A_even = {displayLeaves(toRakeEven)}</p>
-      <p>Concurent rakes:</p>
-      <p>a) {displayLeaves(leavesToRakeFromLeftBranches)}</p>
-      <p>b) {displayLeaves(otherLeavesToRake)}</p>
+      <p>
+        {LABEL.TO_RAKE}
+        {displayLeaves(toRake)}
+      </p>
+      <p>
+        {LABEL.A}
+        <sub>{LABEL.ODD}</sub> {LABEL.EQUAL_SIGN} {displayLeaves(toRakeOdd)}
+      </p>
+      <p>
+        {LABEL.A}
+        <sub>{LABEL.EVEN}</sub> {LABEL.EQUAL_SIGN} {displayLeaves(toRakeEven)}
+      </p>
+      <p>{LABEL.CONCURENT_RAKES}</p>
+      <p>
+        {LABEL.A_BRACKET} {displayLeaves(leavesToRakeFromLeftBranches)}
+      </p>
+      <p>
+        {LABEL.B_BRACKET} {displayLeaves(otherLeavesToRake)}
+      </p>
       <button disabled={rake.isRakeFinished()} onClick={() => rakeTree()}>
-        rake
+        {LABEL.RAKE}
       </button>
     </div>
   );
