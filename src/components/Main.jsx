@@ -10,7 +10,11 @@ const Main = () => {
   return (
     <div>
       <InfoBar rake={treeRef.current?.rake} setIteration={setIteration} />
-      <Tree tree={treeRef.current?.tree} iteration={iteration} />
+      <Tree
+        rake={treeRef.current?.rake}
+        tree={treeRef.current?.tree}
+        iteration={iteration}
+      />
     </div>
   );
 };

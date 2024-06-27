@@ -25,8 +25,8 @@ export class Tree {
     });
   }
 
-  toJson() {
-    return this.getRoot().toJson();
+  toJson(firstConcurrentRakes, secondConcurrentRakes) {
+    return this.getRoot().toJson(firstConcurrentRakes, secondConcurrentRakes);
   }
 
   getRoot() {

@@ -1,5 +1,13 @@
 import { useEffect, useState } from 'react';
-import { LABEL } from '../utils/consts';
+import {
+  ABSOLUTE,
+  LABEL,
+  OUTLINE,
+  PINK_500,
+  PURPLE_500,
+  TEAL,
+  UPPERCASE,
+} from '../utils/consts';
 import {
   Card,
   CardHeader,
@@ -44,15 +52,17 @@ const InfoBar = ({ rake, setIteration }) => {
   };
 
   return (
-    <Box position='absolute' m={2}>
+    <Box position={ABSOLUTE} m={2}>
       <Card mb={2} minWidth={500}>
         <CardHeader>
-          <Heading size='md'>{LABEL.INFO_BAR_TITLE}</Heading>
+          <Heading color={TEAL} size='md'>
+            {LABEL.INFO_BAR_TITLE}
+          </Heading>
         </CardHeader>
         <CardBody>
           <Stack divider={<StackDivider />} spacing='4'>
             <Box>
-              <Heading size='xs' textTransform='uppercase'>
+              <Heading size='xs' textTransform={UPPERCASE}>
                 {LABEL.TO_RAKE}
               </Heading>
               <Text pt='2' fontSize='sm'>
@@ -60,7 +70,7 @@ const InfoBar = ({ rake, setIteration }) => {
               </Text>
             </Box>
             <Box>
-              <Heading size='xs' textTransform='uppercase'>
+              <Heading size='xs' textTransform={UPPERCASE}>
                 {LABEL.A}
                 <sub>{LABEL.ODD}</sub>
               </Heading>
@@ -69,7 +79,7 @@ const InfoBar = ({ rake, setIteration }) => {
               </Text>
             </Box>
             <Box>
-              <Heading size='xs' textTransform='uppercase'>
+              <Heading size='xs' textTransform={UPPERCASE}>
                 {LABEL.A}
                 <sub>{LABEL.EVEN}</sub>
               </Heading>
@@ -78,13 +88,13 @@ const InfoBar = ({ rake, setIteration }) => {
               </Text>
             </Box>
             <Box>
-              <Heading size='xs' textTransform='uppercase'>
+              <Heading size='xs' textTransform={UPPERCASE}>
                 {LABEL.CONCURENT_RAKES}
               </Heading>
-              <Text pt='2' fontSize='sm'>
+              <Text color={PINK_500} pt='2' fontSize='sm'>
                 {LABEL.A_BRACKET} {displayLeaves(leavesToRakeFromLeftBranches)}
               </Text>
-              <Text pt='2' fontSize='sm'>
+              <Text color={PURPLE_500} pt='2' fontSize='sm'>
                 {LABEL.B_BRACKET} {displayLeaves(otherLeavesToRake)}
               </Text>
             </Box>
@@ -94,11 +104,11 @@ const InfoBar = ({ rake, setIteration }) => {
       <Button
         isDisabled={rake.isRakeFinished()}
         onClick={rakeTree}
-        colorScheme='teal'
-        variant='outline'
+        colorScheme={TEAL}
+        variant={OUTLINE}
         w='100%'
       >
-        Rake
+        {LABEL.RAKE}
       </Button>
     </Box>
   );
