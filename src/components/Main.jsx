@@ -8,7 +8,7 @@ const Main = () => {
   const [iteration, setIteration] = useState(0);
 
   return (
-    <div style={{ height: '100%', width: '100%' }}>
+    <div>
       <InfoBar rake={treeRef.current?.rake} setIteration={setIteration} />
       <Tree tree={treeRef.current?.tree} iteration={iteration} />
     </div>

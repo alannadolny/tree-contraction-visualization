@@ -1,5 +1,16 @@
 import { useEffect, useState } from 'react';
 import { LABEL } from '../utils/consts';
+import {
+  Card,
+  CardHeader,
+  CardBody,
+  Stack,
+  Heading,
+  Box,
+  Text,
+  StackDivider,
+  Button,
+} from '@chakra-ui/react';
 
 const InfoBar = ({ rake, setIteration }) => {
   const [toRake, setToRake] = useState([]);
@@ -33,30 +44,63 @@ const InfoBar = ({ rake, setIteration }) => {
   };
 
   return (
-    <div>
-      <p>
-        {LABEL.TO_RAKE}
-        {displayLeaves(toRake)}
-      </p>
-      <p>
-        {LABEL.A}
-        <sub>{LABEL.ODD}</sub> {LABEL.EQUAL_SIGN} {displayLeaves(toRakeOdd)}
-      </p>
-      <p>
-        {LABEL.A}
-        <sub>{LABEL.EVEN}</sub> {LABEL.EQUAL_SIGN} {displayLeaves(toRakeEven)}
-      </p>
-      <p>{LABEL.CONCURENT_RAKES}</p>
-      <p>
-        {LABEL.A_BRACKET} {displayLeaves(leavesToRakeFromLeftBranches)}
-      </p>
-      <p>
-        {LABEL.B_BRACKET} {displayLeaves(otherLeavesToRake)}
-      </p>
-      <button disabled={rake.isRakeFinished()} onClick={() => rakeTree()}>
-        {LABEL.RAKE}
-      </button>
-    </div>
+    <Box position='absolute' m={2}>
+      <Card mb={2} minWidth={500}>
+        <CardHeader>
+          <Heading size='md'>{LABEL.INFO_BAR_TITLE}</Heading>
+        </CardHeader>
+        <CardBody>
+          <Stack divider={<StackDivider />} spacing='4'>
+            <Box>
+              <Heading size='xs' textTransform='uppercase'>
+                {LABEL.TO_RAKE}
+              </Heading>
+              <Text pt='2' fontSize='sm'>
+                {displayLeaves(toRake)}
+              </Text>
+            </Box>
+            <Box>
+              <Heading size='xs' textTransform='uppercase'>
+                {LABEL.A}
+                <sub>{LABEL.ODD}</sub>
+              </Heading>
+              <Text pt='2' fontSize='sm'>
+                {displayLeaves(toRakeOdd)}
+              </Text>
+            </Box>
+            <Box>
+              <Heading size='xs' textTransform='uppercase'>
+                {LABEL.A}
+                <sub>{LABEL.EVEN}</sub>
+              </Heading>
+              <Text pt='2' fontSize='sm'>
+                {displayLeaves(toRakeEven)}
+              </Text>
+            </Box>
+            <Box>
+              <Heading size='xs' textTransform='uppercase'>
+                {LABEL.CONCURENT_RAKES}
+              </Heading>
+              <Text pt='2' fontSize='sm'>
+                {LABEL.A_BRACKET} {displayLeaves(leavesToRakeFromLeftBranches)}
+              </Text>
+              <Text pt='2' fontSize='sm'>
+                {LABEL.B_BRACKET} {displayLeaves(otherLeavesToRake)}
+              </Text>
+            </Box>
+          </Stack>
+        </CardBody>
+      </Card>
+      <Button
+        isDisabled={rake.isRakeFinished()}
+        onClick={rakeTree}
+        colorScheme='teal'
+        variant='outline'
+        w='100%'
+      >
+        Rake
+      </Button>
+    </Box>
   );
 };
 

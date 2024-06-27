@@ -1,5 +1,6 @@
 export const LABEL = {
-  TO_RAKE: 'To rake: A = ',
+  INFO_BAR_TITLE: 'Tree contraction algorithm',
+  TO_RAKE: 'To rake',
   CONCURENT_RAKES: 'Concurent rakes:',
   A_BRACKET: 'a)',
   B_BRACKET: 'b)',
