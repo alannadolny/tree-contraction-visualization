@@ -1,7 +1,7 @@
 export const LABEL = {
   INFO_BAR_TITLE: 'Tree contraction algorithm',
   TO_RAKE: 'To rake',
-  CONCURENT_RAKES: 'Concurent rakes:',
+  CONCURENT_RAKES: 'Concurrent rakes:',
   A_BRACKET: 'a)',
   B_BRACKET: 'b)',
   A: 'A',
