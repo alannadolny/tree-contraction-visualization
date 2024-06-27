@@ -20,7 +20,7 @@ import {
   Button,
 } from '@chakra-ui/react';
 
-const InfoBar = ({ rake, setIteration }) => {
+const InfoBar = ({ rake, setIteration, iteration }) => {
   const [toRake, setToRake] = useState([]);
   const [toRakeOdd, setToRakeOdd] = useState([]);
   const [toRakeEven, setToRakeEven] = useState([]);
@@ -30,7 +30,7 @@ const InfoBar = ({ rake, setIteration }) => {
 
   useEffect(() => {
     calculateRakeInfo();
-  }, []);
+  }, [iteration, rake]);
 
   const calculateRakeInfo = () => {
     const { even, odd, leavesToRake, left, right } = rake?.getRakeInfo();
@@ -48,7 +48,7 @@ const InfoBar = ({ rake, setIteration }) => {
   const rakeTree = () => {
     rake.rake();
     calculateRakeInfo();
-    setIteration((iteration) => iteration + 1);
+    setIteration((iteration) => ({ value: iteration.value + 1 }));
   };
 
   return (

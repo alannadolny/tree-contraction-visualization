@@ -1,7 +1,7 @@
 import { Tree } from '../structures/Tree';
 import { Rake } from '../structures/Rake';
 import { Node } from '../structures/Node';
-import { LEFT, RIGHT } from './consts';
+import { DEFAULT_TREE, LEFT, RIGHT } from './consts';
 
 export const createTree = (nodes) => {
   const nodesArray = nodes.map((value) => (value ? new Node({ value }) : null));
@@ -21,7 +21,7 @@ export const createTree = (nodes) => {
   return new Tree(treeNodes);
 };
 
-export const getTree = () => {
-  const tree = createTree([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]);
+export const getTree = (nodes) => {
+  const tree = createTree(nodes ?? DEFAULT_TREE);
   return { tree, rake: new Rake(tree) };
 };

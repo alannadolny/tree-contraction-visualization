@@ -18,7 +18,6 @@ export class Node {
   }
 
   getNodeColouring(firstConcurrentRakes = [], secondConcurrentRakes = []) {
-    console.log(firstConcurrentRakes, secondConcurrentRakes);
     if (firstConcurrentRakes.includes(this)) {
       return PINK_500_HEX;
     }

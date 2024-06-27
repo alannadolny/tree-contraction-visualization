@@ -9,6 +9,11 @@ export const LABEL = {
   EVEN: 'even',
   EQUAL_SIGN: '=',
   RAKE: 'Rake',
+  INPUT_TITLE: 'Input tree',
+  ADD_LABEL: 'Add node label',
+  CREATE_TREE: 'Create tree',
+  INPUT_TOOLTIP:
+    'You can enter the labels you want to display on your nodes (A new node is added after pressing space). Tree is created processing entered nodes from left to right. If you would like to skip passing node for specific index, you have to input "null". Remember that each level of the tree has 2^h nodes.',
 };
 
 export const VERTICAL = 'vertical';
@@ -24,3 +29,10 @@ export const PINK_500 = 'pink.500';
 export const PINK_500_HEX = '#D53F8C';
 export const PURPLE_500_HEX = '#805AD5';
 export const PURPLE_500 = 'purple.500';
+export const TEAL_500 = 'teal.500';
+export const TAGS_SEPARATOR = ' ';
+export const SOLID = 'solid';
+export const FULL = 'full';
+export const WRAP = 'wrap';
+
+export const DEFAULT_TREE = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];

@@ -6,7 +6,9 @@ export class Rake {
   }
 
   getLeavesToRemove() {
-    const leaves = this.tree.tree.filter((node) => !node.left && !node.right);
+    const leaves = this.tree
+      .getPreorder()
+      .filter((node) => !node.left && !node.right);
     const parent = this.tree.getRoot();
     const maxLeftLeaf = this.tree.getMaxLeftLeaf(parent);
     const maxRightLeaf = this.tree.getMaxRightLeaf(parent);

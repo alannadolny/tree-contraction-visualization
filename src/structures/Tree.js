@@ -25,6 +25,21 @@ export class Tree {
     });
   }
 
+  preorderTraversal(node, result) {
+    if (!node) {
+      return;
+    }
+    result.push(node);
+    this.preorderTraversal(node.left, result);
+    this.preorderTraversal(node.right, result);
+  }
+
+  getPreorder() {
+    const result = [];
+    this.preorderTraversal(this.getRoot(), result);
+    return result;
+  }
+
   toJson(firstConcurrentRakes, secondConcurrentRakes) {
     return this.getRoot().toJson(firstConcurrentRakes, secondConcurrentRakes);
   }
